@@ -21,7 +21,7 @@
 
 1. **Clone repositori ini**
    ```bash
-   git clone https://github.com/username/kalender-seragam.git
+   git clone https://github.com/madep-dev/kalender-seragam.git
    cd kalender-seragam
 2. **Install dependensi**
    ```bash
