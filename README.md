@@ -1,12 +1,49 @@
-# React + Vite
+# 📅 Kalender Seragam
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Kalender Seragam** adalah aplikasi berbasis web yang membantu mengatur jadwal pemakaian seragam berdasarkan hari dalam seminggu. Cocok digunakan untuk sekolah, kantor, atau organisasi yang memiliki aturan seragam berbeda setiap hari. Aplikasi ini juga secara otomatis menyesuaikan jadwal dengan hari libur nasional di Indonesia.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Fitur Utama
 
-## Expanding the ESLint configuration
+- Menampilkan kalender bulanan dengan jadwal seragam tiap hari.
+- Penanda khusus untuk hari libur nasional.
+- Menggunakan API publik untuk data hari libur nasional Indonesia.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 🛠 Teknologi yang Digunakan
+
+- [React.js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [DayOff API](https://dayoffapi.vercel.app/) – untuk mendapatkan data hari libur nasional.
+
+
+## 🚀 Cara Menjalankan Proyek
+
+1. **Clone repositori ini**
+   ```bash
+   git clone https://github.com/username/kalender-seragam.git
+   cd kalender-seragam
+2. **Install dependensi**
+   ```bash
+   npm install
+3. **Jalankan aplikasi secara lokal**
+   ```bash
+   npm run dev
+4. Akses aplikasi melalui browser di http://localhost:5173 (atau port yang ditampilkan).
+
+
+## 📅 Sumber Data Hari Libur
+
+Data hari libur nasional diambil dari DayOff API, yang menyediakan informasi libur resmi di Indonesia.
+
+
+## 📷 Cuplikan Layar
+
+![Tampilan Kalender Seragam](./public/screenshoot.png)
+
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah lisensi MIT.
+
+Terima kasih sudah mampir ke repositori ini! 😊
