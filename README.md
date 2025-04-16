@@ -32,6 +32,10 @@
 4. Akses aplikasi melalui browser di http://localhost:5173 (atau port yang ditampilkan).
 
 
+## 🌐 Live Demo 
+[kalender-seragam.vercel.app](https://kalender-seragam.vercel.app/)
+
+
 ## 📅 Sumber Data Hari Libur
 
 Data hari libur nasional diambil dari DayOff API, yang menyediakan informasi libur resmi di Indonesia.
