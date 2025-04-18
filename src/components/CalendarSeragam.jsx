@@ -10,35 +10,50 @@ dayjs.locale("id");
 function CalendarSeragam() {
     const [currentMonth, setCurrentMonth] = useState(dayjs());
     const [hariLibur, setHariLibur] = useState([]);
-    const [selectedInfo, setSelectedInfo] = useState(null); // 🔍 Untuk modal info
+    const [hariLiburHariIni, setHariLiburHariIni] = useState([]); // 🆕 Tambahan
+    const [selectedInfo, setSelectedInfo] = useState(null);
     const [loading, setLoading] = useState(true);
     const hariMap = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
     const today = dayjs();
 
+    // Fetch data libur bulan yang sedang ditampilkan
     useEffect(() => {
         const fetchHariLibur = async () => {
             const month = currentMonth.month() + 1;
             const year = currentMonth.year();
 
-            setLoading(true); // mulai loading
+            setLoading(true);
             try {
                 const { data } = await axios.get(`https://dayoffapi.vercel.app/api?month=${month}&year=${year}`);
                 setHariLibur(data);
             } catch (error) {
                 console.error("Gagal ambil data hari libur:", error);
             } finally {
-                setLoading(false); // selesai loading
+                setLoading(false);
             }
         };
 
         fetchHariLibur();
     }, [currentMonth]);
 
-    // 🔒 Lock scroll saat modal aktif
+    // 🆕 Fetch data libur bulan HARI INI (satu kali aja)
     useEffect(() => {
-        document.body.style.overflow = selectedInfo ? "hidden" : "auto";
-    }, [selectedInfo]);
+        const fetchHariLiburHariIni = async () => {
+            const month = today.month() + 1;
+            const year = today.year();
 
+            try {
+                const { data } = await axios.get(`https://dayoffapi.vercel.app/api?month=${month}&year=${year}`);
+                setHariLiburHariIni(data);
+            } catch (error) {
+                console.error("Gagal ambil data libur hari ini:", error);
+            }
+        };
+
+        fetchHariLiburHariIni();
+    }, []);
+
+    // Cek libur bulan yang sedang ditampilkan
     const checkLibur = (date) => {
         const tanggalStr = date.format("YYYY-MM-D");
         const namaHari = hariMap[date.day()];
@@ -49,8 +64,19 @@ function CalendarSeragam() {
         };
     };
 
+    // 🆕 Cek libur HARI INI pakai data tetap
+    const checkLiburHariIni = (date) => {
+        const tanggalStr = date.format("YYYY-MM-D");
+        const namaHari = hariMap[date.day()];
+        const liburData = hariLiburHariIni.find((item) => item.tanggal === tanggalStr);
+        return {
+            isLibur: Boolean(liburData) || namaHari === "Minggu" || namaHari === "Sabtu",
+            liburInfo: liburData?.keterangan || (namaHari === "Minggu" ? "" : namaHari === "Sabtu" ? "" : null),
+        };
+    };
+
     const { seragam: seragamHariIni } = getSeragamByDate(today);
-    const { isLibur: isHariIniLibur, liburInfo: liburHariIniInfo } = checkLibur(today);
+    const { isLibur: isHariIniLibur, liburInfo: liburHariIniInfo } = checkLiburHariIni(today); // 🆕 Ganti ke checkLiburHariIni
 
     const monthStart = currentMonth.startOf("month");
     const startDay = monthStart.day();
