@@ -88,7 +88,7 @@ function CalendarSeragam() {
         const { seragam, warna } = getSeragamByDate(date);
         const { isLibur, liburInfo } = checkLibur(date);
         const isToday = date.isSame(today, "day");
-        const highlightToday = isToday ? "border-2 bg-yellow-200 font-bold" : "";
+        const highlightToday = isToday ? "border-2 bg-yellow-200 font-extrabold" : "";
 
         return {
             tanggal: date.date(),
