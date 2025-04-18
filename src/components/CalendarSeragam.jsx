@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { getSeragamByDate } from "../utils/seragam";
 import "dayjs/locale/id";
 import ClipLoader from "react-spinners/ClipLoader";
+import "remixicon/fonts/remixicon.css";
 dayjs.locale("id");
 
 function CalendarSeragam() {
@@ -92,7 +93,7 @@ function CalendarSeragam() {
                             Hari ini memakai <span className="text-sky-500 font-semibold">{seragamHariIni}</span>
                         </p>
                     ) : (
-                        <p className="text-red-500 italic">Hari Libur {"- " + liburHariIniInfo}</p>
+                        <p className="text-red-500 italic text-sm sm:text-[1em]">Hari Libur {"- " + liburHariIniInfo}</p>
                     )}
                 </div>
 
@@ -100,13 +101,13 @@ function CalendarSeragam() {
                 <div className="flex flex-row justify-between sm:justify-center gap-2 sm:gap-4 mb-4">
                     <button
                         onClick={() => setCurrentMonth((prev) => prev.subtract(1, "month"))}
-                        className="text-xs sm:text-sm text-stone-600 bg-stone-50 border border-stone-300 hover:bg-stone-200 px-4 py-2 rounded-full transition-all duration-200">
-                        ⬅️ Bulan Sebelumnya
+                        className="text-xs sm:text-sm text-blue-500 bg-blue-50 hover:bg-blue-400 hover:text-white px-4 py-2 rounded-full transition-all duration-200">
+                        <i className="ri-arrow-left-s-line"></i> Bulan Sebelumnya
                     </button>
                     <button
                         onClick={() => setCurrentMonth((prev) => prev.add(1, "month"))}
-                        className="text-xs sm:text-sm text-stone-600 bg-stone-50 border border-stone-300 hover:bg-stone-200 px-4 py-2 rounded-full transition-all duration-200">
-                        Bulan Berikutnya ➡️
+                        className="text-xs sm:text-sm text-blue-500 bg-blue-50 hover:bg-blue-400 hover:text-white px-4 py-2 rounded-full transition-all duration-200">
+                        Bulan Berikutnya <i className="ri-arrow-right-s-line"></i>
                     </button>
                 </div>
 
@@ -154,9 +155,9 @@ function CalendarSeragam() {
 
                                                 <button
                                                     onClick={() => setSelectedInfo(day.seragam)}
-                                                    className="block sm:hidden text-blue-500 text-xs"
+                                                    className="block sm:hidden text-blue-400 text-xs"
                                                     title="Lihat seragam">
-                                                    ℹ️
+                                                    <i className="ri-information-fill text-base"></i>
                                                 </button>
                                             </>
                                         )}
@@ -170,9 +171,9 @@ function CalendarSeragam() {
                                                 </span>
                                                 <button
                                                     onClick={() => setSelectedInfo(day.libur)}
-                                                    className="block sm:hidden text-blue-500 text-xs"
+                                                    className="block sm:hidden text-blue-400 text-xs"
                                                     title="Lihat info libur">
-                                                    ℹ️
+                                                    <i className="ri-information-fill text-base"></i>
                                                 </button>
                                             </>
                                         )}
@@ -206,12 +207,12 @@ function CalendarSeragam() {
                 )}
             </div>
 
-            <div>
-                <p className="text-[0.8em] sm:text-[0.9em] text-center mt-10 py-3 text-stone-700">
+            <div className="mt-10">
+                <p className="text-[0.8em] sm:text-[0.9em] text-center py-2 bg-blue-500 text-white">
                     Created with ❤️ by
                     <a
                         href="https://t.me/vickerz16"
-                        className="ms-1 text-blue-500 transition-all duration-200 hover:underline hover:text-red-500"
+                        className="ms-1 text-white transition-all duration-200 hover:underline hover:text-red-500"
                         target="_blank">
                         me.
                     </a>
