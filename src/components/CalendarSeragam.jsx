@@ -43,8 +43,8 @@ function CalendarSeragam() {
         const namaHari = hariMap[date.day()];
         const liburData = hariLibur.find((item) => item.tanggal === tanggalStr);
         return {
-            isLibur: Boolean(liburData) || namaHari === "Minggu",
-            liburInfo: liburData?.keterangan || (namaHari === "Minggu" ? "" : null),
+            isLibur: Boolean(liburData) || namaHari === "Minggu" || namaHari === "Sabtu",
+            liburInfo: liburData?.keterangan || (namaHari === "Minggu" ? "" : namaHari === "Sabtu" ? "" : null),
         };
     };
 
@@ -92,7 +92,7 @@ function CalendarSeragam() {
                             Hari ini memakai <span className="text-sky-500 font-semibold">{seragamHariIni}</span>
                         </p>
                     ) : (
-                        <p className="text-red-500 italic">Hari Libur</p>
+                        <p className="text-red-500 italic">Hari Libur {"- " + liburHariIniInfo}</p>
                     )}
                 </div>
 
@@ -207,11 +207,11 @@ function CalendarSeragam() {
             </div>
 
             <div>
-                <p class="text-[0.8em] sm:text-[0.9em] text-center mt-10 py-3 text-stone-700">
+                <p className="text-[0.8em] sm:text-[0.9em] text-center mt-10 py-3 text-stone-700">
                     Created with ❤️ by
                     <a
                         href="https://t.me/vickerz16"
-                        class="ms-1 text-blue-500 transition-all duration-200 hover:underline hover:text-red-500"
+                        className="ms-1 text-blue-500 transition-all duration-200 hover:underline hover:text-red-500"
                         target="_blank">
                         me.
                     </a>
