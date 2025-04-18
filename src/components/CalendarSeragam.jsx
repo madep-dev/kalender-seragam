@@ -59,7 +59,7 @@ function CalendarSeragam() {
         const namaHari = hariMap[date.day()];
         const liburData = hariLibur.find((item) => item.tanggal === tanggalStr);
         return {
-            isLibur: Boolean(liburData) || namaHari === "Minggu" || namaHari === "Sabtu",
+            isLibur: Boolean(liburData) || namaHari === "Minggu",
             liburInfo: liburData?.keterangan || (namaHari === "Minggu" ? "" : namaHari === "Sabtu" ? "" : null),
         };
     };
@@ -88,7 +88,7 @@ function CalendarSeragam() {
         const { seragam, warna } = getSeragamByDate(date);
         const { isLibur, liburInfo } = checkLibur(date);
         const isToday = date.isSame(today, "day");
-        const highlightToday = isToday ? "bg-yellow-200 font-bold" : "";
+        const highlightToday = isToday ? "border-2 bg-yellow-200 font-bold" : "";
 
         return {
             tanggal: date.date(),
@@ -103,7 +103,7 @@ function CalendarSeragam() {
     return (
         <>
             <div className="max-w-4xl mx-auto p-2 sm:p-6">
-                <h1 className="text-xl mt-3 sm:text-3xl font-extrabold text-center text-stone-700 tracking-wide mb-1">
+                <h1 className="text-xl mt-3 sm:text-3xl font-extrabold text-center text-sky-600 tracking-wide mb-1">
                     Kalender Seragam bulan {monthStart.format("MMMM YYYY")}
                 </h1>
                 <p className="text-sm sm:text-normal text-center text-stone-500 mb-6 leading-4">
@@ -174,7 +174,7 @@ function CalendarSeragam() {
                                         {!day.libur && day.seragam && (
                                             <>
                                                 <span
-                                                    className="hidden sm:block text-[0.8em] text-center truncate border border-sky-300 bg-sky-100 text-sky-600 px-2 py-0.5 rounded-md"
+                                                    className="hidden sm:block text-[0.8em] text-center truncate border border-sky-400 bg-sky-100 text-sky-600 px-2 py-0.5 rounded-md"
                                                     title={day.seragam}>
                                                     {day.seragam}
                                                 </span>
@@ -191,7 +191,7 @@ function CalendarSeragam() {
                                         {day.libur && (
                                             <>
                                                 <span
-                                                    className="hidden sm:block text-[0.8em] text-center truncate border border-red-200 bg-red-100 text-red-600 px-2 py-0.5 rounded-md"
+                                                    className="hidden sm:block text-[0.8em] text-center truncate border border-red-300 bg-red-100 text-red-600 px-2 py-0.5 rounded-md"
                                                     title={day.libur}>
                                                     {day.libur}
                                                 </span>
