@@ -112,7 +112,7 @@ function CalendarSeragam() {
                 </div>
 
                 {/* 📅 Kalender */}
-                <div className="p-2 sm:p-5 bg-white border border-stone-400 rounded-lg">
+                <div className="p-2 sm:p-5 bg-white border border-stone-500 rounded-lg">
                     {loading ? (
                         <div className="flex justify-center items-center h-40">
                             <ClipLoader size={40} color={"#3B82F6"} loading={loading} />
@@ -195,13 +195,18 @@ function CalendarSeragam() {
                         className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
                         onClick={() => setSelectedInfo(null)}>
                         <div
-                            className="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-[90%] text-center animate-fadeIn"
+                            className="bg-white rounded-xl shadow-2xl max-w-sm w-[90%] animate-fadeIn p-3"
                             onClick={(e) => e.stopPropagation()}>
-                            <h2 className="text-lg font-bold mb-2">Info</h2>
-                            <p className="text-sm">{selectedInfo}</p>
-                            <button onClick={() => setSelectedInfo(null)} className="mt-4 px-4 py-1 bg-blue-500 text-white rounded">
-                                Tutup
-                            </button>
+                            <h2 className="text-base text-stone-700 font-bold">Informasi</h2>
+                            <p className="text-base text-stone-700 my-8 text-center">{selectedInfo}</p>
+                            <div className="text-end">
+                                <button
+                                    onClick={() => setSelectedInfo(null)}
+                                    className="px-5 py-1 bg-blue-50 text-blue-500 rounded-full text-sm active:bg-blue-400 active:text-white transition-all duration-200">
+                                    <i className="ri-close-large-line me-1"></i>
+                                    Tutup
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -212,10 +217,11 @@ function CalendarSeragam() {
                     Created with ❤️ by
                     <a
                         href="https://t.me/vickerz16"
-                        className="ms-1 text-white transition-all duration-200 hover:underline hover:text-red-500"
+                        className="ms-1 text-white transition-all duration-200 underline hover:text-red-500"
                         target="_blank">
-                        me.
+                        me
                     </a>
+                    .
                 </p>
             </div>
         </>
