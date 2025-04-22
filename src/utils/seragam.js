@@ -17,34 +17,34 @@ export function getSeragamByDate(date) {
     }
 
     if (namaHari === "Sabtu") {
-        return { seragam: "", warna: "border-stone-500" };
+        return { seragam: "", warna: "border-stone-700" };
     }
 
     if (tanggal === 17) {
-        return { seragam: "KORPRI", warna: "border-stone-500" };
+        return { seragam: "KORPRI", warna: "border-stone-700" };
     }
 
     if (tanggal === 18) {
-        return { seragam: "Baju Adat Brebesan", warna: "border-stone-500" };
+        return { seragam: "Baju Adat Brebesan", warna: "border-stone-700" };
     }
 
     if (namaHari === "Senin" || namaHari === "Selasa") {
-        return { seragam: "Khaki", warna: "border-stone-500" };
+        return { seragam: "Khaki", warna: "border-stone-700" };
     }
 
     if (namaHari === "Rabu") {
-        return { seragam: "PDH Putih", warna: "border-stone-500" };
+        return { seragam: "PDH Putih", warna: "border-stone-700" };
     }
 
     if (namaHari === "Kamis") {
         if (mingguKe === 1) {
-            return { seragam: "Batik Sidomukti Ukel", warna: "border-stone-500" };
+            return { seragam: "Batik Motif Sidomukti Ukel", warna: "border-stone-700" };
         } else {
-            return { seragam: "Batik Brebes Lainnya", warna: "border-stone-500" };
+            return { seragam: "Batik Brebes Motif Lainnya", warna: "border-stone-700" };
         }
     }
 
     if (namaHari === "Jumat") {
-        return { seragam: "Batik Brebes/Nasional/Lurik", warna: "border-stone-500" };
+        return { seragam: "Batik Brebes Motif Lainnya/Nasional/Lurik", warna: "border-stone-700" };
     }
 }

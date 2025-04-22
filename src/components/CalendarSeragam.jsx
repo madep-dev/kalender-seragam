@@ -116,10 +116,12 @@ function CalendarSeragam() {
                     <h2 className="text-normal text-stone-700 sm:text-xl font-semibold">{today.format("dddd, D MMMM YYYY")}</h2>
                     {!isHariIniLibur ? (
                         <p className="text-stone-700 text-sm sm:text-[1em]">
-                            Hari ini memakai <span className="text-sky-500 font-semibold">{seragamHariIni}</span>
+                            Hari ini memakai <span className="text-sky-500 font-semibold mx-1 animate-flash">{seragamHariIni}</span>
                         </p>
+                    ) : liburHariIniInfo === "" ? (
+                        <p className="text-red-500 italic text-sm sm:text-[1em]">Hari Libur</p>
                     ) : (
-                        <p className="text-red-500 italic text-sm sm:text-[1em]">Hari Libur {"- " + liburHariIniInfo}</p>
+                        <p className="text-red-500 italic text-sm sm:text-[1em]">Hari Libur - {liburHariIniInfo}</p>
                     )}
                 </div>
 
@@ -138,7 +140,7 @@ function CalendarSeragam() {
                 </div>
 
                 {/* 📅 Kalender */}
-                <div className="p-2 sm:p-5 bg-white border border-stone-500 rounded-lg">
+                <div className="p-2 sm:p-5 bg-white border border-stone-700 rounded-lg">
                     {loading ? (
                         <div className="flex justify-center items-center h-40">
                             <ClipLoader size={40} color={"#3B82F6"} loading={loading} />
@@ -183,7 +185,7 @@ function CalendarSeragam() {
                                                     onClick={() => setSelectedInfo(day.seragam)}
                                                     className="block sm:hidden text-blue-400 text-xs"
                                                     title="Lihat seragam">
-                                                    <i className="ri-information-fill text-base"></i>
+                                                    <i className="ri-information-2-fill text-base"></i>
                                                 </button>
                                             </>
                                         )}
@@ -199,7 +201,7 @@ function CalendarSeragam() {
                                                     onClick={() => setSelectedInfo(day.libur)}
                                                     className="block sm:hidden text-blue-400 text-xs"
                                                     title="Lihat info libur">
-                                                    <i className="ri-information-fill text-base"></i>
+                                                    <i className="ri-information-2-fill text-base"></i>
                                                 </button>
                                             </>
                                         )}
@@ -239,7 +241,7 @@ function CalendarSeragam() {
             </div>
 
             <div className="mt-10">
-                <p className="text-[0.8em] sm:text-[0.9em] text-center py-2 bg-sky-600 text-white">
+                <p className="text-[0.7em] sm:text-[0.8em] text-center py-2 bg-sky-600 text-white">
                     Created with ❤️ by
                     <a
                         href="https://t.me/vickerz16"
