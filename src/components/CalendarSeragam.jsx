@@ -241,7 +241,7 @@ function CalendarSeragam() {
             </div>
 
             <div className="mt-10">
-                <p className="text-[0.7em] sm:text-[0.8em] text-center py-2 bg-sky-600 text-white">
+                <p className="text-[0.6em] sm:text-[0.8em] text-center py-2 bg-sky-600 text-white">
                     Created with ❤️ by
                     <a
                         href="https://t.me/vickerz16"
